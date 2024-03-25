@@ -1,0 +1,41 @@
+{
+    "name": "cypress",
+    "version": "1.0.0",
+    "description": "Automated tests on cypress",
+    "main": "index.js",
+    "scripts": {
+        "allure:clear": "rm -rf allure-results/ allure-report cypress/screenshots || true",
+        "cy:run:headless:chrome:allure": "cypress run --browser chrome --spec 'cypress/e2e/**/*.js' --env allure=true",
+        "cy:run:headless:firefox:allure": "cypress run --browser firefox --spec 'cypress/e2e/**/*.js' --env allure=true",
+        "cy:run:headed:firefox:allure": "cypress run --browser firefox --spec 'cypress/e2e/**/*.js' --env allure=true --headed",
+        "cy:run:headed:chrome:allure": "cypress run --browser chrome --spec 'cypress/e2e/**/*.cy.js' --env allure=true --headed",
+        "allure:report": "allure generate allure-results --clean -o allure-report",
+        "history": "mv -f allure-report/history allure-results/history && rm -rf allure-report || true",
+        "allure:serve": "allure serve"
+    },
+    "author": "Ivan Dziuba",
+    "license": "ISC",
+    "devDependencies": {
+        "@4tw/cypress-drag-drop": "^2.2.5",
+        "@badeball/cypress-cucumber-preprocessor": "^15.1.1",
+        "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
+        "@faker-js/faker": "^8.3.1",
+        "@shelex/cypress-allure-plugin": "^2.34.0",
+        "allure-commandline": "^2.20.1",
+        "cypress": "^12.2.0",
+        "cypress-delete-downloads-folder": "^0.0.2",
+        "cypress-iframe": "^1.0.1",
+        "cypress-mochawesome-reporter": "^3.8.1",
+        "cypress-real-events": "^1.7.6",
+        "cypress-recurse": "^1.27.0",
+        "cypress-sql-server": "^1.0.0",
+        "cypress-xpath": "^2.0.1",
+        "eslint": "^8.33.0",
+        "lorem-ipsum": "^2.0.8",
+        "mocha": "^10.2.0",
+        "xhr": "^2.6.0"
+    },
+    "dependencies": {
+        "cypress-plugin-tab": "^1.0.5"
+    }
+}
